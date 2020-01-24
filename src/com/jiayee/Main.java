@@ -6,7 +6,8 @@ import com.jiayee.abstractfactory.CatShelterFactoryFactory;
 import com.jiayee.abstractfactory.ShelterType;
 import com.jiayee.builder.TriggerToolConfig;
 import com.jiayee.builder.TriggerToolConfigBuilder;
-
+import com.jiayee.factorymethod.HamsterCage;
+import com.jiayee.prototype.PugHouse;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -33,5 +34,18 @@ public class Main {
         System.out.println(config.getRunDate());
         System.out.println(config.getRecordLimit());
         System.out.println(config.getDataSource().isPresent());
+
+        // Factory method
+        System.out.println("#### Factory method");
+        final HamsterCage cage = new HamsterCage();
+        cage.addPet();
+        cage.getPet(0).makeSound();
+
+        // Prototype
+        System.out.println("#### Prototype");
+        final PugHouse pugHouse = new PugHouse();
+        pugHouse.addPug();
+        pugHouse.addPug();
+        pugHouse.hearPugs();
     }
 }
