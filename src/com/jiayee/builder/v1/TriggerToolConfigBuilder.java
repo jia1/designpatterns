@@ -1,8 +1,8 @@
-package com.jiayee.builder;
+package com.jiayee.builder.v1;
 
-import javax.sql.DataSource;
 import java.time.LocalDate;
 import java.util.Optional;
+import javax.sql.DataSource;
 
 /**
  * Builder for TriggerToolConfig. Implementation issues to consider: 1. Assembly and construction interface. 2. Abstract class

@@ -1,4 +1,4 @@
-package com.jiayee.singleton;
+package com.jiayee.singleton.v1;
 
 /**
  * Benefits of using a singleton: Controlled access to instance, reduce namespace pollution by

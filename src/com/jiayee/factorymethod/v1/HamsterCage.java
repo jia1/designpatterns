@@ -1,4 +1,4 @@
-package com.jiayee.factorymethod;
+package com.jiayee.factorymethod.v1;
 
 import java.util.ArrayList;
 import java.util.List;

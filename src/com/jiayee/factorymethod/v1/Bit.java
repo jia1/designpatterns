@@ -1,4 +1,4 @@
-package com.jiayee.factorymethod;
+package com.jiayee.factorymethod.v1;
 
 public class Bit implements Pet {
   @Override

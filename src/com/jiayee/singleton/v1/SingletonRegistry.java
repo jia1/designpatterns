@@ -1,4 +1,4 @@
-package com.jiayee.singleton;
+package com.jiayee.singleton.v1;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

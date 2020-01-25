@@ -1,4 +1,4 @@
-package com.jiayee.singleton;
+package com.jiayee.singleton.v1;
 
 public class BlahBlahUtil extends BlahUtil {
   private static BlahBlahUtil util;

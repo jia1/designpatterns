@@ -1,4 +1,4 @@
-package com.jiayee.prototype;
+package com.jiayee.prototype.v1;
 
 public class Pug implements Dog {
   // This is expected to be a difficult method to implement, especially when the class / object is
