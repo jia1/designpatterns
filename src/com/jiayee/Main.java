@@ -8,9 +8,14 @@ import com.jiayee.builder.TriggerToolConfig;
 import com.jiayee.builder.TriggerToolConfigBuilder;
 import com.jiayee.factorymethod.HamsterCage;
 import com.jiayee.prototype.PugHouse;
+import com.jiayee.singleton.BlahBlahUtil;
+import com.jiayee.singleton.BlahUtil;
+import com.jiayee.singleton.Singleton;
+import com.jiayee.singleton.SingletonRegistry;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,5 +52,20 @@ public class Main {
         pugHouse.addPug();
         pugHouse.addPug();
         pugHouse.hearPugs();
+
+        // Singleton
+        System.out.println("#### Singleton");
+        // getInstance must be called or the register method will not be called. I did not register
+        // the singletons automatically (i.e. by storing a list of predetermined singleton classes).
+        final BlahUtil blahUtil = BlahUtil.getInstance();
+        blahUtil.doStuff();
+        final BlahBlahUtil blahBlahUtil = BlahBlahUtil.getInstance();
+        blahBlahUtil.doStuff();
+        // getInstance must be called before lookup!
+        final Optional<Singleton> blahUtilOptional = SingletonRegistry.lookup(BlahUtil.class);
+        blahUtilOptional.ifPresent(singleton -> ((BlahUtil) singleton).doStuff());
+        final Optional<Singleton> blahBlahUtilOptional = SingletonRegistry
+            .lookup(BlahBlahUtil.class);
+        blahBlahUtilOptional.ifPresent(singleton -> ((BlahBlahUtil) singleton).doStuff());
     }
 }

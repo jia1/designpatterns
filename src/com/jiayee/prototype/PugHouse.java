@@ -11,6 +11,8 @@ import java.util.List;
  * <p>
  * The run-time benefit can be acquired when the list of available prototypes are stored elsewhere
  * i.e. a registry. This registry is also known as a prototype manager.
+ * <p>
+ * TODO: Set up a prototype manager / registry!
  */
 public class PugHouse {
   // This prototype should be in a registry of prototypes which the PugHouse can then query for.
