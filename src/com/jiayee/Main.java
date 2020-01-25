@@ -14,6 +14,11 @@ import com.jiayee.creationalpatterns.abstractfactory.v3.YetAnotherAbstractFactor
 import com.jiayee.creationalpatterns.builder.v1.TriggerToolConfig;
 import com.jiayee.creationalpatterns.builder.v1.TriggerToolConfigBuilder;
 import com.jiayee.creationalpatterns.factorymethod.v1.HamsterCage;
+import com.jiayee.creationalpatterns.factorymethod.v2.Factory;
+import com.jiayee.creationalpatterns.factorymethod.v2.FactoryProduct;
+import com.jiayee.creationalpatterns.factorymethod.v2.GenericRealFactory;
+import com.jiayee.creationalpatterns.factorymethod.v2.RealFactory;
+import com.jiayee.creationalpatterns.factorymethod.v2.RealFactoryProduct;
 import com.jiayee.creationalpatterns.prototype.v1.PugHouse;
 import com.jiayee.creationalpatterns.singleton.v1.BlahBlahUtil;
 import com.jiayee.creationalpatterns.singleton.v1.BlahUtil;
@@ -63,6 +68,13 @@ public class Main {
         final HamsterCage cage = new HamsterCage();
         cage.addPet();
         cage.getPet(0).makeSound();
+
+        final Factory factory = new RealFactory();
+        factory.factoryMethod().greet();
+
+        final GenericRealFactory<FactoryProduct> genericRealFactory = new GenericRealFactory<>(
+            RealFactoryProduct::new);
+        genericRealFactory.factoryMethod().greet();
 
         // Prototype
         System.out.println("#### Prototype");
