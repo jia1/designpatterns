@@ -24,6 +24,7 @@ import com.jiayee.creationalpatterns.singleton.v1.BlahBlahUtil;
 import com.jiayee.creationalpatterns.singleton.v1.BlahUtil;
 import com.jiayee.creationalpatterns.singleton.v1.Singleton;
 import com.jiayee.creationalpatterns.singleton.v1.SingletonRegistry;
+import com.jiayee.structuralpatterns.adapter.classadapter.HealthyFoodAdapter;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -97,5 +98,9 @@ public class Main {
         final Optional<Singleton> blahBlahUtilOptional = SingletonRegistry
             .lookup(BlahBlahUtil.class);
         blahBlahUtilOptional.ifPresent(singleton -> ((BlahBlahUtil) singleton).doStuff());
+
+        // Adapter: Class adapter via multiple inheritance of interfaces
+        final HealthyFoodAdapter adapter = new HealthyFoodAdapter();
+        adapter.eat();
     }
 }
