@@ -1,4 +1,4 @@
-package com.jiayee.abstractfactory;
+package com.jiayee.abstractfactory.v1;
 
 /**
  * Abstract factory for CatShelterFactory. "A factory of factories; a factory that groups the individual but related/dependent

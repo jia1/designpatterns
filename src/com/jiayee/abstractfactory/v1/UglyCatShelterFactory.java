@@ -1,4 +1,4 @@
-package com.jiayee.abstractfactory;
+package com.jiayee.abstractfactory.v1;
 
 import java.util.ArrayList;
 import java.util.Collections;

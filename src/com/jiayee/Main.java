@@ -1,9 +1,16 @@
 package com.jiayee;
 
-import com.jiayee.abstractfactory.Cat;
-import com.jiayee.abstractfactory.CatShelterFactory;
-import com.jiayee.abstractfactory.CatShelterFactoryFactory;
-import com.jiayee.abstractfactory.ShelterType;
+import com.jiayee.abstractfactory.v1.Cat;
+import com.jiayee.abstractfactory.v1.CatShelterFactory;
+import com.jiayee.abstractfactory.v1.CatShelterFactoryFactory;
+import com.jiayee.abstractfactory.v1.ShelterType;
+import com.jiayee.abstractfactory.v2.TheAbstractFactory;
+import com.jiayee.abstractfactory.v2.TheFactoryType;
+import com.jiayee.abstractfactory.v2.TheFactoryUser;
+import com.jiayee.abstractfactory.v3.ProductOne;
+import com.jiayee.abstractfactory.v3.ProductTwo;
+import com.jiayee.abstractfactory.v3.SomeProduct;
+import com.jiayee.abstractfactory.v3.YetAnotherAbstractFactory;
 import com.jiayee.builder.TriggerToolConfig;
 import com.jiayee.builder.TriggerToolConfigBuilder;
 import com.jiayee.factorymethod.HamsterCage;
@@ -28,6 +35,17 @@ public class Main {
         final CatShelterFactory uglyCatShelterFactory = CatShelterFactoryFactory.getCatShelterFactory(ShelterType.UGLY);
         final List<Cat> uglyCats = uglyCatShelterFactory.gatherCats();
         uglyCats.forEach(cat -> System.out.println(cat.makeSound()));
+
+        final TheFactoryUser user = new TheFactoryUser();
+        user.makeSomethingFromFactory(TheAbstractFactory.getFactory(TheFactoryType.CHEESECAKE));
+        user.makeSomethingFromFactory(TheAbstractFactory.getFactory(TheFactoryType.ICE_CREAM));
+
+        final Optional<SomeProduct> productOneOptional = YetAnotherAbstractFactory
+            .getProduct(ProductOne.class);
+        productOneOptional.ifPresent(SomeProduct::greet); // Should print "ProductOne."
+        final Optional<SomeProduct> productTwoOptional = YetAnotherAbstractFactory
+            .getProduct(ProductTwo.class);
+        productTwoOptional.ifPresent(SomeProduct::greet); // Should print "ProductTwo."
 
         // Builder
         System.out.println("#### Builder");

@@ -1,24 +1,24 @@
-package com.jiayee.abstractfactory;
+package com.jiayee.abstractfactory.v1;
 
 /**
  * @author jylim
  */
 
-public class CalicoCat implements Cat {
+public class MaineCat implements Cat {
     @Override
     public Mood eat(final Food food) {
         switch (food) {
             case FISH:
-                return Mood.ANGRY;
+                return Mood.HAPPY;
             case LOLLIPOP:
                 return Mood.SAD;
             default:
-                return Mood.HAPPY;
+                return Mood.ANGRY;
         }
     }
 
     @Override
     public Sound makeSound() {
-        return Sound.PURR;
+        return Sound.MEOW;
     }
 }

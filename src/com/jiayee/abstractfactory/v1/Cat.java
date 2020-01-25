@@ -1,4 +1,4 @@
-package com.jiayee.abstractfactory;
+package com.jiayee.abstractfactory.v1;
 
 /**
  * "Program to an interface, not an implementation." "Favor object composition over object inheritance."
