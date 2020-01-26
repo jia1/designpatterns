@@ -1,7 +1,12 @@
 package com.jiayee.structuralpatterns.adapter.objectadapter.v1;
 
+/**
+ * This adapter implements abstract operations.
+ * <p>
+ * Unexplored: Parameterised adapter.
+ */
 public class UniversalAdapter implements Socket {
-  private Plug plug;
+  private final Plug plug;
 
   public UniversalAdapter(final Plug plug) {
     this.plug = plug;
@@ -10,6 +15,6 @@ public class UniversalAdapter implements Socket {
   @Override
   public void switchOn() {
     plug.plugInto(this);
-    System.out.println("Switched on.");
+    System.out.println("Socket is switched on.");
   }
 }

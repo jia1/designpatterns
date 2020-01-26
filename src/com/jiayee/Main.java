@@ -25,8 +25,11 @@ import com.jiayee.creationalpatterns.singleton.v1.BlahUtil;
 import com.jiayee.creationalpatterns.singleton.v1.Singleton;
 import com.jiayee.creationalpatterns.singleton.v1.SingletonRegistry;
 import com.jiayee.structuralpatterns.adapter.classadapter.HealthyFoodAdapter;
+import com.jiayee.structuralpatterns.adapter.objectadapter.v1.SocketDelegate;
+import com.jiayee.structuralpatterns.adapter.objectadapter.v1.TypeAPlug;
 import com.jiayee.structuralpatterns.adapter.objectadapter.v1.TypeGPlug;
 import com.jiayee.structuralpatterns.adapter.objectadapter.v1.UniversalAdapter;
+import com.jiayee.structuralpatterns.adapter.objectadapter.v1.UniversalAdapterTwo;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.List;
@@ -107,7 +110,10 @@ public class Main {
 
         // Adapter: Object adapter via object composition of adaptee into adapter, a subclass of the
         // target
-        final UniversalAdapter universalAdapter = new UniversalAdapter(new TypeGPlug());
+        final UniversalAdapter universalAdapter = new UniversalAdapter(new TypeAPlug());
         universalAdapter.switchOn();
+        final UniversalAdapterTwo universalAdapter2 = new UniversalAdapterTwo(new SocketDelegate(),
+            new TypeGPlug());
+        universalAdapter2.switchOn();
     }
 }
