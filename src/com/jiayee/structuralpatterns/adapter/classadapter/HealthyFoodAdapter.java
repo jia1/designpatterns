@@ -9,6 +9,8 @@ package com.jiayee.structuralpatterns.adapter.classadapter;
  * Expect overriding.
  * <p>
  * No object composition -> no additional pointer to Veggie instance.
+ * <p>
+ * Observe that the adapter changes the implementation / interface of the existing target.
  */
 public class HealthyFoodAdapter implements Fruit, Veggie {
   @Override
