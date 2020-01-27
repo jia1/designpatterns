@@ -30,8 +30,12 @@ import com.jiayee.structuralpatterns.adapter.objectadapter.v1.TypeAPlug;
 import com.jiayee.structuralpatterns.adapter.objectadapter.v1.TypeGPlug;
 import com.jiayee.structuralpatterns.adapter.objectadapter.v1.UniversalAdapter;
 import com.jiayee.structuralpatterns.adapter.objectadapter.v1.UniversalAdapterTwo;
+import com.jiayee.structuralpatterns.bridge.v1.ChartDataset;
+import com.jiayee.structuralpatterns.bridge.v1.JFreeBarChart;
+import com.jiayee.structuralpatterns.bridge.v1.JFreeBarChartImplementor;
 import java.time.LocalDate;
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -115,5 +119,14 @@ public class Main {
         final UniversalAdapterTwo universalAdapter2 = new UniversalAdapterTwo(new SocketDelegate(),
             new TypeGPlug());
         universalAdapter2.switchOn();
+
+        // Bridge
+        final JFreeBarChartImplementor chartImplementor = new JFreeBarChartImplementor();
+        final ChartDataset dataset = new ChartDataset(new ArrayList<>());
+        final JFreeBarChart chart = new JFreeBarChart();
+        chart.setImplementor(chartImplementor);
+        chart.setDataset(dataset);
+        final String bars = chart.drawBars();
+        System.out.println(bars);
     }
 }
