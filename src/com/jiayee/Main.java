@@ -114,6 +114,7 @@ public class Main {
         blahBlahUtilOptional.ifPresent(singleton -> ((BlahBlahUtil) singleton).doStuff());
 
         // Adapter: Class adapter via multiple inheritance of interfaces
+        System.out.println("#### Adapter");
         final HealthyFoodAdapter adapter = new HealthyFoodAdapter();
         adapter.eat();
 
@@ -126,6 +127,7 @@ public class Main {
         universalAdapter2.switchOn();
 
         // Bridge
+        System.out.println("#### Bridge");
         final JFreeBarChartImplementor chartImplementor = new JFreeBarChartImplementor();
         final ChartDataset dataset = new ChartDataset(new ArrayList<>());
         final JFreeBarChart chart = new JFreeBarChart();
@@ -135,6 +137,7 @@ public class Main {
         System.out.println(bars);
 
         // Composite
+        System.out.println("#### Composite");
         final Node leaf = new Leaf();
         final Node internalNode = new InternalNode();
         final Node root = new Root();
