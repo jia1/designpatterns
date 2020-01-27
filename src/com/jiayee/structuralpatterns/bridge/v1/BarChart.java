@@ -5,6 +5,11 @@ import java.util.Optional;
 /**
  * Imagine that the drawn bars are represented by a string and all BarChart-related classes
  * understand this representation, somehow.
+ * <p>
+ * Another (similar) way to look at bridges is object composition. The bar chart abstraction
+ * contains the bar chart implementation. To change implementations (e.g. when we want to use
+ * another bar chart framework, or when we cannot use the default implementation due to OS
+ * limitations), we simply compose with a different but suitable implementor.
  */
 public interface BarChart {
   Optional<BarChartImplementor> getImplementor();

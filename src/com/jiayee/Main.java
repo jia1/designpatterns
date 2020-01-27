@@ -33,6 +33,11 @@ import com.jiayee.structuralpatterns.adapter.objectadapter.v1.UniversalAdapterTw
 import com.jiayee.structuralpatterns.bridge.v1.ChartDataset;
 import com.jiayee.structuralpatterns.bridge.v1.JFreeBarChart;
 import com.jiayee.structuralpatterns.bridge.v1.JFreeBarChartImplementor;
+import com.jiayee.structuralpatterns.composite.v1.InternalNode;
+import com.jiayee.structuralpatterns.composite.v1.Leaf;
+import com.jiayee.structuralpatterns.composite.v1.Node;
+import com.jiayee.structuralpatterns.composite.v1.Root;
+import com.jiayee.structuralpatterns.composite.v1.Traverser;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -128,5 +133,15 @@ public class Main {
         chart.setDataset(dataset);
         final String bars = chart.drawBars();
         System.out.println(bars);
+
+        // Composite
+        final Node leaf = new Leaf();
+        final Node internalNode = new InternalNode();
+        final Node root = new Root();
+        leaf.setParent(internalNode);
+        internalNode.addChildren(leaf);
+        internalNode.setParent(root);
+        root.addChildren(internalNode);
+        Traverser.traverse(root);
     }
 }
