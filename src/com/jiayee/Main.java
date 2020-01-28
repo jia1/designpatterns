@@ -38,6 +38,9 @@ import com.jiayee.structuralpatterns.composite.v1.Leaf;
 import com.jiayee.structuralpatterns.composite.v1.Node;
 import com.jiayee.structuralpatterns.composite.v1.Root;
 import com.jiayee.structuralpatterns.composite.v1.Traverser;
+import com.jiayee.structuralpatterns.decorator.RealRoom;
+import com.jiayee.structuralpatterns.decorator.RealRoomDecorator;
+import com.jiayee.structuralpatterns.decorator.Room;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -146,5 +149,11 @@ public class Main {
         internalNode.setParent(root);
         root.addChildren(internalNode);
         Traverser.traverse(root);
+
+        // Decorator
+        System.out.println("#### Decorator");
+        final Room room = new RealRoom();
+        final RealRoomDecorator decoratedRoom = new RealRoomDecorator(room); // Note the type
+        System.out.println(decoratedRoom.isDecorated());
     }
 }
