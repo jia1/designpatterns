@@ -155,5 +155,8 @@ public class Main {
         final Room room = new RealRoom();
         final RealRoomDecorator decoratedRoom = new RealRoomDecorator(room); // Note the type
         System.out.println(decoratedRoom.isDecorated());
+
+        // Facade
+        // See facade.v2 package
     }
 }
