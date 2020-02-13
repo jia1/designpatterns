@@ -41,6 +41,8 @@ import com.jiayee.structuralpatterns.composite.v1.Traverser;
 import com.jiayee.structuralpatterns.decorator.RealRoom;
 import com.jiayee.structuralpatterns.decorator.RealRoomDecorator;
 import com.jiayee.structuralpatterns.decorator.Room;
+import com.jiayee.structuralpatterns.flyweight.HairstyleFactory;
+import com.jiayee.structuralpatterns.flyweight.MapleStoryCharacter;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -157,6 +159,31 @@ public class Main {
         System.out.println(decoratedRoom.isDecorated());
 
         // Facade
+        System.out.println("#### Facade");
         // See facade.v2 package
+
+        // Flyweight
+        System.out.println("#### Flyweight");
+        final HairstyleFactory hairstyleFactory = new HairstyleFactory();
+        final MapleStoryCharacter mapleStoryCharacter1 = new MapleStoryCharacter(hairstyleFactory
+            .getFemaleHairstyle1Flyweight());
+        final MapleStoryCharacter mapleStoryCharacter2 = new MapleStoryCharacter(hairstyleFactory
+            .getFemaleHairstyle1Flyweight());
+        final MapleStoryCharacter mapleStoryCharacter3 = new MapleStoryCharacter(hairstyleFactory
+            .getFemaleHairstyle2Flyweight());
+        final MapleStoryCharacter mapleStoryCharacter4 = new MapleStoryCharacter(hairstyleFactory
+            .getFemaleHairstyle2Flyweight());
+        mapleStoryCharacter1.getHairstyle().describe();
+        mapleStoryCharacter2.getHairstyle().describe();
+        System.out.println(mapleStoryCharacter1.getHairstyle()
+            == mapleStoryCharacter2.getHairstyle());
+        mapleStoryCharacter3.getHairstyle().describe();
+        mapleStoryCharacter4.getHairstyle().describe();
+        System.out.println(mapleStoryCharacter3.getHairstyle()
+            == mapleStoryCharacter4.getHairstyle());
+
+        // Proxy
+        System.out.println("#### Proxy");
+        // TBC
     }
 }
