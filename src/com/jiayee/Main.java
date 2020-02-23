@@ -1,5 +1,7 @@
 package com.jiayee;
 
+import com.jiayee.behavioralpatterns.chainofresponsibility.Computer;
+import com.jiayee.behavioralpatterns.chainofresponsibility.Printer;
 import com.jiayee.creationalpatterns.abstractfactory.v1.Cat;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactory;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactoryFactory;
@@ -43,6 +45,8 @@ import com.jiayee.structuralpatterns.decorator.RealRoomDecorator;
 import com.jiayee.structuralpatterns.decorator.Room;
 import com.jiayee.structuralpatterns.flyweight.HairstyleFactory;
 import com.jiayee.structuralpatterns.flyweight.MapleStoryCharacter;
+import com.jiayee.structuralpatterns.proxy.v1.SpyroWorldProxy;
+import com.jiayee.structuralpatterns.proxy.v1.World;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
@@ -184,6 +188,12 @@ public class Main {
 
         // Proxy
         System.out.println("#### Proxy");
-        // TBC
+        final World spyroWorldProxy = new SpyroWorldProxy(10, 10);
+        spyroWorldProxy.draw(1, 1);
+
+        // Chain of responsibility
+        System.out.println("#### Chain of responsibility");
+        final Computer computer = new Computer(new Printer());
+        computer.print();
     }
 }
