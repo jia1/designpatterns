@@ -2,6 +2,7 @@ package com.jiayee;
 
 import com.jiayee.behavioralpatterns.chainofresponsibility.Computer;
 import com.jiayee.behavioralpatterns.chainofresponsibility.Printer;
+import com.jiayee.behavioralpatterns.command.MicrosoftPaint;
 import com.jiayee.creationalpatterns.abstractfactory.v1.Cat;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactory;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactoryFactory;
@@ -195,5 +196,15 @@ public class Main {
         System.out.println("#### Chain of responsibility");
         final Computer computer = new Computer(new Printer());
         computer.print();
+
+        // Command
+        System.out.println("#### Command");
+        final MicrosoftPaint microsoftPaint = new MicrosoftPaint();
+        microsoftPaint.draw();
+        microsoftPaint.draw();
+        microsoftPaint.draw();
+        microsoftPaint.undo();
+        microsoftPaint.undo();
+        microsoftPaint.redo();
     }
 }
