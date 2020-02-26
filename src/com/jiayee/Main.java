@@ -3,6 +3,9 @@ package com.jiayee;
 import com.jiayee.behavioralpatterns.chainofresponsibility.Computer;
 import com.jiayee.behavioralpatterns.chainofresponsibility.Printer;
 import com.jiayee.behavioralpatterns.command.MicrosoftPaint;
+import com.jiayee.behavioralpatterns.interpreter.v1.Comparison;
+import com.jiayee.behavioralpatterns.interpreter.v1.Literal;
+import com.jiayee.behavioralpatterns.interpreter.v1.Logic;
 import com.jiayee.creationalpatterns.abstractfactory.v1.Cat;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactory;
 import com.jiayee.creationalpatterns.abstractfactory.v1.CatShelterFactoryFactory;
@@ -206,5 +209,15 @@ public class Main {
         microsoftPaint.undo();
         microsoftPaint.undo();
         microsoftPaint.redo();
+
+        // Interpreter
+        System.out.println("#### Interpreter");
+        final Literal l1 = new Literal("l1");
+        final Literal l2 = new Literal("l2");
+        final Comparison c1 = new Comparison(l1, "<", l2);
+        final Comparison c2 = new Comparison(l2, "<", l1);
+        final Logic l3 = new Logic(c1, "AND", c2);
+        final Logic l4 = new Logic(l3, "OR", new Literal("true"));
+        System.out.println(l4.evaluate());
     }
 }
